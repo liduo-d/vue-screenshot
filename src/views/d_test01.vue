@@ -2,8 +2,8 @@
     <div>
         <div>
             <button @click="changeURL">URL切换</button>
-            <button @click="domtoimageShoot">DOM2IMG截图</button>
-            <button @click="crxShoot">CRX截图</button>
+            <button @click="domtoimageShot">DOM2IMG截图</button>
+            <button @click="crxShot">CRX截图</button>
         </div>
         <div>
             <iframe :src="URL" id="iframeID" frameborder="0" width="800" height="600">
@@ -33,7 +33,7 @@
                     this.URL = SOUGOU
                 }
             },
-            domtoimageShoot() {
+            domtoimageShot() {
                 const node = document.getElementById('iframeID');
                 domtoimage.toPng(node)
                     .then(dataUrl => {
@@ -46,15 +46,15 @@
                         console.error('Something went wrong!', error);
                     });
             },
-            crxShoot() {
-                const msg = {cmd: 'screenshoot', value: this.getPageSize()};
+            crxShot() {
+                const msg = {cmd: 'screenshot', value: this.getPageSize()};
 
                 try {
                     // eslint-disable-next-line
                     chromeInject.sendMsgToContent(msg)
                 } catch (e) {
-                    console.error('Please check that you have the screenshoot-ctx installed' +
-                        'See more: https://github.com/liduo-d/screenshoot-crx')
+                    console.error('Please check that you have the screenshot-ctx installed' +
+                        'See more: https://github.com/liduo-d/screenshot-crx')
                 }
             },
 
