@@ -25,6 +25,11 @@
                 URL: BAIDU
             }
         },
+        created() {
+            window.addEventListener('screenshot', e => {
+                this.drawImage(e.detail.url);
+            }, false)
+        },
         methods: {
             changeURL() {
                 if (this.URL.indexOf('baidu') === -1) {
@@ -66,6 +71,14 @@
                     width: rect.width,
                     height: rect.height
                 }
+            },
+
+            drawImage(url) {
+                const link = document.createElement('a');
+                link.download = 'ctx2iamge.png';
+                link.href = url;
+                link.click();
+                link.remove();
             }
         }
     }
