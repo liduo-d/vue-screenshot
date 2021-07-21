@@ -16,7 +16,7 @@ this kind of screenshot method will become very difficult. When the iframe is th
 
 ####Screenshot based on Chrome extension
 
-The Chrome extension calls the chrome.tabs.capturevisibletab method to capture the view, and then cuts and draws it on the canvas according to the coordinate parameters.
+The Chrome extension calls the chrome.tabs.captureVisibleTab method to capture the view, and then cuts and draws it on the canvas according to the coordinate parameters.
 
 It doesn't have the cross-origin problem of drawing canvas based on DOM, which is a real screenshot.
 
